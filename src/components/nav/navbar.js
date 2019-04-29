@@ -1,0 +1,34 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Logo from './logo';
+import { logUserOut } from '../../backend/auth';
+import { Link } from 'react-router-dom';
+
+export const Navigation = ({user}) => (
+    <nav className="navbar">
+        <Logo />
+        {/*{user && user.authenticated ? (*/}
+            {/*<span className="user-nav-widget">*/}
+                {/*<span>{user.name}</span>*/}
+                {/*<img width={40} className="img-circle" src={user.profilePicture} alt={user.name} />*/}
+                {/*<span onClick={() => logUserOut()}>*/}
+                    {/*<i className="fa fa-sign-out" />*/}
+                {/*</span>*/}
+            {/*</span>*/}
+        {/*) : (*/}
+            {/*<Link to="/login">*/}
+                {/*<button type="button">Log in or sign up</button>*/}
+            {/*</Link>*/}
+        {/*)}*/}
+    </nav>
+);
+
+Navigation.propTypes = {
+    user: PropTypes.shape({
+        name: PropTypes.string,
+        authenticated: PropTypes.bool,
+        profilePicture: PropTypes.string
+    }).isRequired
+};
+
+export default Navigation;
